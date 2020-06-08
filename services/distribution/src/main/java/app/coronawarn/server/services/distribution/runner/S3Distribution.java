@@ -44,15 +44,10 @@ public class S3Distribution implements ApplicationRunner {
   private static final Logger logger = LoggerFactory.getLogger(S3Distribution.class);
 
   private final OutputDirectoryProvider outputDirectoryProvider;
-  private final ObjectStoreAccess objectStoreAccess;
-  private final FailedObjectStoreOperationsCounter failedOperationsCounter;
   private final S3Publisher s3Publisher;
 
-  S3Distribution(OutputDirectoryProvider outputDirectoryProvider, ObjectStoreAccess objectStoreAccess,
-      FailedObjectStoreOperationsCounter failedOperationsCounter, S3Publisher s3Publisher) {
+  S3Distribution(OutputDirectoryProvider outputDirectoryProvider, S3Publisher s3Publisher) {
     this.outputDirectoryProvider = outputDirectoryProvider;
-    this.objectStoreAccess = objectStoreAccess;
-    this.failedOperationsCounter = failedOperationsCounter;
     this.s3Publisher = s3Publisher;
   }
 
